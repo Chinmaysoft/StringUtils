@@ -26,7 +26,6 @@ def analyze(request):
     spaceremover=request.POST.get('spaceremover','default')
     charcount=request.POST.get('charcount','default')
     strslice=request.POST.get('strslice','default')
-    fileupload=request.POST.get('fileupload','default')
 
     # Check which checkbox is on
     if removepunc =="on":
@@ -36,9 +35,7 @@ def analyze(request):
             if char not in punctuations:
                 analyzed=analyzed+char
         params={'purpose':'Remove Punctuations', 'analyzed_text': analyzed}
-        # analyze the text
         djtext = analyzed
-        # return render(request,'analyze.html',params)
 
     if fullcaps=="on":
         analyzed = ""
@@ -46,9 +43,7 @@ def analyze(request):
             analyzed= analyzed + char.upper()
 
         params = {'purpose': 'UPPER CASE The Text', 'analyzed_text': analyzed}
-        # analyze the text
         djtext=analyzed
-        # return render(request, 'analyze.html', params)
 
     if newlineremover=="on":
         analyzed = ""
@@ -56,9 +51,7 @@ def analyze(request):
             if char != "\n" and char!="\r":
                 analyzed = analyzed + char
         params = {'purpose': 'New LineRemoved', 'analyzed_text': analyzed}
-        # analyze the text
         djtext = analyzed
-        # return render(request, 'analyze.html', params)
 
     if spaceremover =="on":
         analyzed = ""
@@ -66,16 +59,12 @@ def analyze(request):
             if not(djtext[index]==" " and djtext[index+1]== " "):
                 analyzed = analyzed + char
         params = {'purpose': 'Extra Space is removed', 'analyzed_text': analyzed}
-                # analyze the text
         djtext = analyzed
-        # return render(request, 'analyze.html', params)
 
     if charcount=="on":
         analyzed=len(djtext)
         params = {'purpose': 'Total Count', 'analyzed_text': analyzed}
-        # analyze the text
         djtext = analyzed
-        # return render(request, 'analyze.html', params)
 
     if strslice=="on":
         try:
@@ -84,7 +73,6 @@ def analyze(request):
             end=request.POST.get('end','default')
             analyzed=djtext[int(start):int(end)+1]
             params ={'purpose': 'String Slicing', 'analyzed_text': analyzed}
-            # return render(request,'analyze.html',params)
         except Exception as e:
             print(e)
 
@@ -92,5 +80,3 @@ def analyze(request):
         return HttpResponse("Please select any one option for execution")
 
     return render(request, 'analyze.html', params)
-
-
