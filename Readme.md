@@ -5,6 +5,6 @@ This project is performing task on String
 
 ### Built With
 
-* [![Django][djangoproject.com]][Next-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+<a href="www.djangoproject.com" target="_blank">Django Projects</a><br>
+<a href="www.Bootstrap.com" target="_blank">Bootstrap</a>
 
