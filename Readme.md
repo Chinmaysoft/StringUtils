@@ -5,6 +5,6 @@ This project is performing task on String
 
 ### Built With
 
-<a href="www.djangoproject.com" target="_blank">Django Projects</a><br>
-<a href="www.Bootstrap.com" target="_blank">Bootstrap</a>
+<a href="https://www.djangoproject.com/" target="_blank">Django Projects</a><br>
+<a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
 
